@@ -1,9 +1,17 @@
+// how to add static file
+const path = require("path");
 const express = require("express");
 const app = express();
 const port = 3000;
-console.log(__dirname);
-// app.use(express.static(staticPath));
-// home page route
+// static file add
+// console.log(__dirname);
+//
+// console.log(path.join(__dirname, "../public"));
+const staticPath = path.join(__dirname, "../public");
+app.use(express.static(staticPath));
+
+// home route
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
